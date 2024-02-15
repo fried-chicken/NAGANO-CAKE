@@ -1,5 +1,22 @@
 Rails.application.routes.draw do
 
+  scope module: :public do
+    get '/' => 'homes#top'
+    get '/about' => 'homes#about'
+    resources :items, only: [:index,:show]
+    resources :cart_items, only: [:index,:create,:update,:destroy]
+    delete "cart_items/destroy_all" => "cart_items#destroy_all"
+    get "customers/mypage" => "customers#show"
+    get "customers/information/edit" => "customers#edit"
+    patch "customers/information" => "customers#update"
+    get "customers/unsubscribe" => "customers#unsubscribe"
+    get "customers/withdraw" => "customers#withdraw"
+    resources :orders, only: [:new,:index,:show]
+    post "orders/confilm" => "orders#confilm"
+    get "orders/thanks" => "orders#thanks"
+    resources :addresses, only: [:index,:edit,:create,:update,:destroy]
+  end
+    
   namespace :admin do
     get "/"=>"homes#top"
     resources :items, only: [:new,:index,:show,:edit,:create,:update]
@@ -8,10 +25,6 @@ Rails.application.routes.draw do
     resources :orders, only: [:show,:update] do
       resources :order_details, only: [:update]
     end
-  end
-  
-  namespace :customer do
-    
   end
   
   devise_for :admins, controllers: {
