@@ -1,0 +1,26 @@
+<nav>
+    <div><%= link_to "LOGO", root_path %></div>
+  <ul>
+    <% if admin_signed_in? %>
+      <!-- 管理者がログインしている場合のヘッダー -->
+      <li><%= link_to "商品一覧", admin_items_path %></li>
+      <li><%= link_to "会員一覧", admin_customers_path %></li>
+      <li><%= link_to "注文履歴一覧", admin_order_path %></li>
+      <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
+      <li><%= link_to "ログアウト", admin_session_pat %></li>
+    <% elsif customer_signed_in? %>
+      <!-- 会員がログインしている場合のヘッダー -->
+      <li><%= link_to "マイページ", customers_mypage_path %></li>
+      <li><%= link_to "商品一覧", items_path %></li>
+      <li><%= link_to "カート", cart_items_path %></li>
+      <li><%= link_to "ログアウト", root_path %></li>
+    <% else %>
+      <!-- ログインしていない場合のヘッダー　管理者新規登録は後に削除 -->
+      <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "商品一覧", items_path %></li>
+      <li><%= link_to "管理者新規登録", new_admin_registration_path %></li>
+      <li><%= link_to "会員新規登録", new_customer_registration_path %></li>
+      <li><%= link_to "ログイン", new_customer_session_path %></li>
+    <% end %>
+  </ul>
+</nav>

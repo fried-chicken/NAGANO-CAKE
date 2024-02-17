@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Demo2</title>
+    <title>NAGANO-CAKE</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,13 +11,11 @@
   </head>
 
   <body>
-    <header>
-      <li class="nav-item">
-        <%= link_to destroy_admin_session_path, method: :delete do %>
-          <i class="fas fa-sign-out-alt">ログアウト</i>
-      <% end %>
-      </li>
-    </header>
-    <%= yield %>
+
+    <%= render 'layouts/header' %>
+    <main>
+      <%= yield %>
+    </main>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
