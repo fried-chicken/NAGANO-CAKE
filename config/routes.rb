@@ -20,12 +20,12 @@ Rails.application.routes.draw do
     resources :items, only: [:new,:index,:show,:edit,:create,:update]
     resources :genres, only: [:index,:edit,:create,:update]
     resources :customers, only: [:index,:show,:edit,:update]
-    resources :orders, only: [:show,:update] do
+    resource :orders, only: [:show,:update] do
       resources :order_details, only: [:update]
     end
   end
   
-  devise_for :admins, controllers: {
+  devise_for :admin, controllers: {
     registrations: "admins/registrations",
     sessions: "admins/sessions",
     passwords: "admins/passwords",

@@ -5,9 +5,9 @@
       <!-- 管理者がログインしている場合のヘッダー -->
       <li><%= link_to "商品一覧", admin_items_path %></li>
       <li><%= link_to "会員一覧", admin_customers_path %></li>
-      <li><%= link_to "注文履歴一覧", admin_order_path %></li>
+      <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
       <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
-      <li><%= link_to "ログアウト", admin_session_pat %></li>
+      <li><%= link_to "ログアウト", admin_session_path %></li>
     <% elsif customer_signed_in? %>
       <!-- 会員がログインしている場合のヘッダー -->
       <li><%= link_to "マイページ", customers_mypage_path %></li>
