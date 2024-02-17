@@ -76,9 +76,9 @@ ActiveRecord::Schema.define(version: 2024_02_16_052300) do
     t.string "first_name"
     t.string "last_name_kana"
     t.string "first_name_kana"
-    t.integer "postal_code"
+    t.string "postal_code"
     t.string "address"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.boolean "is_active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
