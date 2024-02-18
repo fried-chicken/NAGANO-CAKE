@@ -14,6 +14,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def after_sign_in_path_for(resource_or_scope)
+    if resource_or_scope == :admin
+      admin_items_path
+    else
+      items_path
+    end
+  end
+  
   protected
 
   def configure_permitted_parameters
