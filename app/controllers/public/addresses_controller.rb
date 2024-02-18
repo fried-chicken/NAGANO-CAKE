@@ -23,15 +23,15 @@ class Public::AddressesController < ApplicationController
     @address = Address.find(params[:id])
 	  @address.destroy
 	  redirect_to addresses_path
-	end
+  end
 	
-	def update
+  def update
     @address = Address.find(params[:id])
     if @address.update(address_params)
     redirect_to addresses_path
-     else
+    else
       render "edit"
-     end
+    end
   end
   
   
