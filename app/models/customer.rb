@@ -10,13 +10,13 @@ class Customer < ApplicationRecord
 
   def customer_status
     if is_active == true
-      "退会"
-    else
       "有効"
+    else
+      "退会"
     end
   end
 
   def active_for_authentication?
-    super && (is_active == false)
+    super && (is_active == true)
   end
 end
