@@ -1,29 +1,63 @@
-<h1>商品新規登録</h1>
+<div class="container" style="max-width: 50%;">
+  <h1 class="mb-4" style="position: relative; left: -50px;">商品新規登録</h1>
 
-<%= form_with model: @item, url: admin_items_path do |f| %>
-  
-  <h4>商品画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-  
-  <h4>商品名</h4>
-  <%= f.text_field :name, placeholder: "商品名" %>
-  
-  <h4>商品説明</h4>
-  <%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %>
-  
-  <h4>ジャンル</h4>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
-  
-  <h4>税抜価格<h4>
-  <%= f.text_field :price, placeholder: "1000" %>円
-  
-  <h4>販売ステータス</h4>
-  <input type="radio" id="active" name="item[is_active]" value="true" checked>
-  <label for="active">販売中</label>
-  
-  <input type="radio" id="inactive" name="item[is_active]" value="false">
-  <label for="inactive">販売停止中</label>
-  
-  <%= f.submit '新規登録' %>
+  <%= render 'layouts/errors', obj: @item %>
 
-<% end %>
+  <%= form_with model: @item, url: admin_items_path do |f| %>
+    <div class="row mb-3">
+      <div class="col-sm-4 col-form-label h4">商品画像</div>
+      <div class="col-sm-8">
+        <%= f.file_field :image, accept: "image/*", class: "form-control border-0" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-sm-4 col-form-label h4">商品名</div>
+      <div class="col-sm-8">
+        <%= f.text_field :name, placeholder: "商品名", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-sm-4 col-form-label h4">商品説明</div>
+      <div class="col-sm-8">
+        <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "form-control", rows: 5 %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-sm-4 col-form-label h4">ジャンル</div>
+      <div class="col-sm-8">
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, selected: @item.genre_id, prompt: "--選択してください--", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-sm-4 col-form-label text-sm-end h4 ">税抜価格</div>
+      <div class="col-sm-8 d-flex align-items-center">
+        <%= f.text_field :price, placeholder: "1000", class: "form-control" %>
+        <span class="ml-1">円</span>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-sm-4 col-form-label h4">販売ステータス</div>
+      <div class="col-sm-8">
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :is_active, true, id: "active", class: "form-check-input", checked: true %>
+          <label class="form-check-label" for="active" style="color: black;">販売中</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :is_active, false, id: "inactive", class: "form-check-input" %>
+          <label class="form-check-label" for="inactive" style="color: black;">販売停止中</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8 offset-sm-4">
+        <%= f.submit '新規登録', class: "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+</div>
