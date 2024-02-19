@@ -1,12 +1,14 @@
 <div class="container">
+  <h4>商品一覧</h4>
   <div class="row">
-    <div class="col">
-      <h1>商品一覧</h1>
-      <%= @items.each do |item| %>
-        <div class="card" style="width: 18rem;">
-          <p><%= items.image %></p>
-          <p><%= items.name %></p>
-          <p><%= items.price %></p>
+    <div class="d-flex flex-wrap justify-content: space-around">
+      <% @items.each do |item| %>
+        <div class="card">
+          <%= link_to item_path(item.id) do %>
+            <p><%= image_tag item.get_image, size:"250x200" %></p>
+            <p><%= item.name %></p>
+            <p><%= item.price %></p>
+          <% end %>
         </div>
       <% end %>
     </div>
