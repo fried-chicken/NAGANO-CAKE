@@ -14,11 +14,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def after_sign_in_path_for(resource_or_scope)
-    if resource_or_scope == :admin
+  def after_sign_in_path_for(resource)
+    case resource
+    when Admin
       admin_items_path
-    else
+    when Customer
       items_path
+    else
+      root_path
     end
   end
   
