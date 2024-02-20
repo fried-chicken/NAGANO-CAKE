@@ -11,11 +11,11 @@ Rails.application.routes.draw do
     get "customers/unsubscribe" => "customers#unsubscribe"
     get "customers/withdraw" => "customers#withdraw"
     resources :orders, only: [:new,:index,:show]
-    post "orders/confilm" => "orders#confilm"
+    post "orders/confirm" => "orders#confirm"
     get "orders/thanks" => "orders#thanks"
     resources :addresses, only: [:index,:edit,:create,:update,:destroy]
   end
-    
+
   namespace :admin do
     resources :items, only: [:new,:index,:show,:edit,:create,:update]
     resources :genres, only: [:index,:edit,:create,:update]
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       resources :order_details, only: [:update]
     end
   end
-  
+
   devise_for :admin, controllers: {
     registrations: "admins/registrations",
     sessions: "admins/sessions",
