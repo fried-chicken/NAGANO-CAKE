@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get "customers/information/edit" => "customers#edit"
     patch "customers/information" => "customers#update"
     get "customers/unsubscribe" => "customers#unsubscribe"
-    get "customers/withdraw" => "customers#withdraw"
+    patch "customers/withdraw" => "customers#withdraw"
     resources :orders, only: [:new,:index,:show]
     post "orders/confilm" => "orders#confilm"
     get "orders/thanks" => "orders#thanks"
