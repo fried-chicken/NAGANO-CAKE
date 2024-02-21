@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :genre
-  has_many :cart_items
+  has_many :cart_items, dependent: :destroy
   has_many :order_details
 
   has_one_attached :image
@@ -9,6 +9,10 @@ class Item < ApplicationRecord
   
   def get_image
     image
+  end
+  
+  def taxin_price
+        price*1.1
   end
 
 end
