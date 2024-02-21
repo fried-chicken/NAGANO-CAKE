@@ -29,6 +29,8 @@
   outline: none !important; /* !importantを追加 */
 }
 
+// ジャンル
 .field_with_errors {
-  display: contents;
+  float: left;
+  margin-right: 5px;
 }

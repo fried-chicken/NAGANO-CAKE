@@ -6,7 +6,7 @@
   </div>
   
   <div class="row">
-    <div class="col-md-6 mx-left offset-2" style="margin-top: 20px;">
+    <div class="col-md-6 mx-left offset-2 " style="margin-top: 20px;">
       <% if flash[:success] %>
         <div class="alert alert-success" role="alert">
           <%= flash[:success] %>
@@ -25,12 +25,10 @@
       <%= form_with(model: @genre, url: admin_genre_path(@genre), method: :patch, local: true) do |form| %>
         <div class="row">
           <div class="col">
-            <div class="form-group">
-              <div class="mb-3">
-                <%= form.label :name, "ジャンル名：" %>
-                <%= form.text_field :name %>
-                <%= form.submit "変更を保存", class: "btn btn-primary", style: "background-color: green;" %>
-              </div>
+            <div class="form-group mb-3">
+              <%= form.label :name, "ジャンル名：" %>
+              <%= form.text_field :name %>
+              <%= form.submit "変更を保存", class: "btn btn-primary", style: "background-color: green;" %>
             </div>
           </div>
         </div>
