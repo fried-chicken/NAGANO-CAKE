@@ -28,3 +28,7 @@
 .btn:focus {
   outline: none !important; /* !importantを追加 */
 }
+
+.field_with_errors {
+  display: contents;
+}
