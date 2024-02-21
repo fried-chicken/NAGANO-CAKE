@@ -1,5 +1,11 @@
 @use '~bootstrap/scss/bootstrap';
 
+// ヘッダー用
+.btn-outline {
+  border-color: lightgray;
+}
+
+// 新規商品登録ボタン
 .btn-circle {
   width: 40px;
   height: 40px;

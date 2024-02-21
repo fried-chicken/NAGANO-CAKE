@@ -15,8 +15,9 @@ class Customer < ApplicationRecord
       "退会"
     end
   end
-
+  
   def active_for_authentication?
     super && (is_active == true)
   end
+
 end
