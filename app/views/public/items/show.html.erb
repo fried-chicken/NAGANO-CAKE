@@ -3,14 +3,14 @@
     <div class="col-5">
       <%= image_tag @item.get_image, size:"250x200" %>
     </div>
-    <dib class="col-5">
+    <div class="col-5">
       <h3><%= @item.name %></h3>
       <p><%= @item.introduction %></p>
-      <p>￥<%= number_with_delimiter(((@item.price)*1.1).floor) %>（税込）</p>
+      <p><strong>￥<%= number_with_delimiter(((@item.price)*1.1).floor) %></strong>（税込）</p>
       <%= form_with(model:@cart_item, url:cart_items_path,method: :post) do |f| %>
         <%= f.hidden_field :item_id, :value => @item.id %>
         <%= f.select :amount, *[1..10],prompt: "個数選択" %>
-        <%= f.submit "カートに入れる" %>
+        <%= f.submit "カートに入れる", class: "btn btn-success" %>
       <% end %>
     </div>
   </div>
