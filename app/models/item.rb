@@ -11,7 +11,7 @@ class Item < ApplicationRecord
     image
   end
   
-  def taxin_price
+  def with_taxin_price
         price*1.1
   end
 
