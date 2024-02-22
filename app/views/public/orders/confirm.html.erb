@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <table class="table">
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th>商品名</th>
@@ -14,7 +14,10 @@
         <% @cart_items.each do |cart_item| %>
         <tbody>
           <tr>
-            <td><%= cart_item.item.name %></td>
+            <td>
+              <%= image_tag cart_item.item.image, size: "100x80" %>
+              <%= cart_item.item.name %>
+            </td>
             <td><%= (cart_item.item.taxin_price).floor %></td>
             <td><%= cart_item.amount %></td>
             <td><%= ((cart_item.item.taxin_price).floor)*(cart_item.amount) %></td>
@@ -26,7 +29,7 @@
     </div>
 
     <div class="col">
-      <table class="table">
+      <table class="table table-bordered">
         <tr>
           <th>送料</th>
           <td><%= @shipping_fee %></td>
@@ -44,20 +47,22 @@
   </div>
 
   <div class="row">
-    <table>
-      <tr>
-        <th>お支払い方法</th>
-        <td><%= @order.payment_method_i18n%></td>
-      </tr>
-      <tr>
-        <th>お届け先</th>
-        <td>
-          〒<%= @order.postal_code %>
-          <%= @order.address %>
-          <%= @order.name %>
-        </td>
-      </tr>
-    </table>
+    <div class="col">
+      <table>
+        <tr>
+          <th>お支払い方法</th>
+          <td><%= @order.payment_method_i18n%></td>
+        </tr>
+        <tr>
+          <th>お届け先</th>
+          <td>
+            〒<%= @order.postal_code %>
+            <%= @order.address %></br>
+            <%= @order.name %>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 
   <%= form_with model: @order_new , url: orders_path  do |f| %>
