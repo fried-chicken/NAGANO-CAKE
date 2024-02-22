@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
   scope module: :public do
     resources :items, only: [:index,:show]
-    resources :cart_items, only: [:index,:create,:update,:destroy]
     delete "cart_items/destroy_all" => "cart_items#destroy_all"
+    resources :cart_items, only: [:index,:create,:update,:destroy]
     get "customers/mypage" => "customers#show"
     get "customers/information/edit" => "customers#edit"
     patch "customers/information" => "customers#update"
