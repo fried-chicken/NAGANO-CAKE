@@ -1,12 +1,11 @@
 class OrderDetail < ApplicationRecord
-    belongs_to :order
-    belongs_to :item
+  belongs_to :order
+  belongs_to :item
 
-     enum making_status:
-        {
-          impossible_manufacture:0,
-          waiting_manufacture:1,
-          manufacturing:2,
-          finish:3
-        }
+  enum making_status: {
+    制作不可:0,
+    制作待ち:1,
+    制作中:2,
+    制作完了:3
+  }
 end
