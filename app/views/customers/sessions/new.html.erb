@@ -1,29 +1,36 @@
-<p id="notice"></p>
+
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2>ログイン</h2>
-      <p class="ml-5">会員の方はこちらからログイン</p>
-      <div class="d-flex justify-content-center align-items-center">
+      <h2 class="offset-1 my-4">ログイン</h2>
+      <p class="offset-2 my-4">会員の方はこちらからログイン</p>
+      
       <%= form_with model: @customer, url: customer_session_path do |f| %>
-      <table class="mr-5">
+      <table class="offset-3">
         <tr>
           <td>メールアドレス</td>
-          <td><%= f.email_field :email, autofocus: true, autocomplete: "email", size: 40 %></td>
+          <td>　<%= f.email_field :email, autofocus: true, autocomplete: "email", size: 35 %></td>
         </tr>
+        
+        <th><br></th>
+        
         <tr>
           <td>パスワード</td>
-          <td><%= f.password_field :password, autocomplete: "current-password", size: 40 %></td>
+          <td>　<%= f.password_field :password, autocomplete: "current-password", size: 35 %></td>
         </tr>
+        
+        <th><br></th>
+        
         <tr>
           <td></td>
-          <td><%= f.submit "ログイン", class: "btn btn-primary" %></td>
+          <td>　<%= f.submit "ログイン", class: "btn btn-primary" %></td>
         </tr>
+       
       </table>
       <% end %>
-      </div>
-　　<p>会員登録がお済みでない方</p>
-　　<%= link_to 'こちら', new_customer_registration_path %> から新規登録を行なってください。
+      
+　　<div class="offset-2">会員登録がお済みでない方</div>
+　　<div class="offset-3"><%= link_to 'こちら', new_customer_registration_path %> から新規登録を行なってください。</div>
     </div>
   </div>
 </div>
