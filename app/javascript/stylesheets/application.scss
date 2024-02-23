@@ -16,17 +16,13 @@
   line-height: 40px;
   background-color: white;
   color: black;
-  border: 1px solid black; /* 枠線を細くする */
+  border: 1px solid black;
 }
 
 .btn-circle:hover {
-  background-color: white; /* ホバーしても背景色が変わらないように */
-  color: black; /* ホバーしても文字色が変わらないように */
-  border: 1px solid black; /* ホバーしても枠線が変わらないように */
-}
-
-.btn:focus {
-  outline: none !important; /* !importantを追加 */
+  background-color: white;
+  color: black;
+  border: 1px solid black;
 }
 
 // ジャンル
