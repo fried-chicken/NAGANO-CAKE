@@ -1,5 +1,5 @@
 <div class="container mt-5 mb-5">
-  <div class="row addres">
+  <div class="row">
     <div class="col-sm-10 px-sm-0 offset-sm-1">
       <h3>配送先登録/一覧</h3>
     </div>
@@ -9,23 +9,17 @@
       <%= form_with(model: @address, :url => {:controller => "public/addresses"}) do |f| %>
       <table>
         <tr>
-          <div calss="form-group">
-            <th><%= f.label :"郵便番号(ハイフンなし)", class: "col-xs-3 control-label" %></th>
-            <td><%= f.text_field :postal_codeclass, class: "col-xs-4 form-control-static postal_code" %></td>
-          </div>
+            <th><%= f.label :"郵便番号(ハイフンなし)" %></th>
+            <td><%= f.text_field :postal_codeclass, placeholder:"0000000" %></td>
         </tr>
         <tr>
-          <div calss="form-group">
-            <th><%= f.label :"住所" ,class: "col-xs-3 control-label" %></th>
-            <td><%= f.text_field :address, class: "col-xs-7 form-control-static address" %></td>
-          </div>
+            <th><%= f.label :"住所" %></th>
+            <td><%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0", size: "50x5" %></td>
          </tr>
          <tr>
-          <div calss="form-group">
-            <th><%= f.label :"宛名", class: "col-xs-3 control-label" %></th>
-            <td><%= f.text_field :name, class: "col-xs-4 form-control-static name" %></td>
+            <th><%= f.label :"宛名" %></th>
+            <td><%= f.text_field :name, placeholder:"令和道子" %></td>
             <td><%= f.submit "新規登録", class:"btn btn-success" %></td>
-          </div>
          </tr>
       </table>
       <% end %>
