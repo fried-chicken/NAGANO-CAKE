@@ -26,17 +26,17 @@
                 <%= image_tag cart_item.item.image, size: "100x80" %>
                 <%= cart_item.item.name %>
               </td>
-              <td class="align-middle"><%= cart_item.item.with_taxin_price.round %></td>
+              <td class="align-middle"><%= number_with_delimiter(cart_item.item.with_taxin_price.floor) %></td>
               <td td class="align-middle">
                 <%= form_with model:cart_item, url:cart_item_path(cart_item.id) , local:true do |f| %>
                 <%= f.select :amount, *[1..10] %>
                 <%= f.submit "変更" , class: "btn btn-success" %>
                <% end %>
               </td>
-              <td class="align-middle"><%= cart_item.subtotal.round %></td>
+              <td class="align-middle"><%= number_with_delimiter(cart_item.subtotal.floor) %></td>
               <td class="align-middle text-center"><%= link_to "削除", cart_item_path(cart_item) ,  method: :delete , "data-confirm" => "商品を削除しますか？" , class: "btn btn-danger"%></td>
             </tr>
-            <% @sum += cart_item.subtotal.round %>
+            <% @sum += cart_item.subtotal %>
           <% end %>
       </table>
     </div>
@@ -49,7 +49,7 @@
     <div class="col-sm-4 px-sm-0">
       <table class="table table-bordered">
         <tr>
-          <th class="table-active" style="width:50%">合計金額</td><td style="width:50%"><%= @sum.round %></td>
+          <th class="table-active" style="width:50%">合計金額</td><td style="width:50%"><%= number_with_delimiter(@sum.floor) %></td>
         </tr>
       </table>
     </div>
