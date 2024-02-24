@@ -1,28 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 6rem;">
+<nav class="navbar navbar-expand-lg bg-back" style="height: 7rem;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><%= link_to "ながのCAKE", root_path %></a>
+    <strong><%= link_to "NAGANOCAKE.", root_path, class: "btn btn-logo"  %></strong>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <% if admin_signed_in? %>
-          <li class="nav-item"><%= link_to "商品一覧", admin_items_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
-          <li class="nav-item"><%= link_to "会員一覧", admin_customers_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
-          <li class="nav-item"><%= link_to "注文履歴一覧", admin_orders_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
-          <li class="nav-item"><%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
-          <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
+          <li class="nav-item"><%= link_to "商品一覧", admin_items_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "会員一覧", admin_customers_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "注文履歴一覧", admin_orders_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link btn btn-outline mx-1" %></li>
         <% elsif customer_signed_in? %>
-          <li class="nav-item"><%= link_to "マイページ", customers_mypage_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
-          <li class="nav-item"><%= link_to "商品一覧", items_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
-          <li class="nav-item"><%= link_to "カート", cart_items_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
-          <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
+          <li class="nav-item"><%= link_to "マイページ", customers_mypage_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "商品一覧", items_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "カート", cart_items_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link btn btn-outline mx-1" %></li>
         <% else %>
-          <li class="nav-item"><%= link_to "About", about_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
-          <li class="nav-item"><%= link_to "商品一覧", items_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
-          <li class="nav-item"><%= link_to "管理者新規登録", new_admin_registration_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
-          <li class="nav-item"><%= link_to "管理者ログイン", new_admin_session_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
-          <li class="nav-item"><%= link_to "会員新規登録", new_customer_registration_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
-          <li class="nav-item"><%= link_to "会員ログイン", new_customer_session_path, class: "nav-link btn btn-outline btn-sm mx-1" %></li>
+          <li class="nav-item"><%= link_to "About", about_path, class: "nav-link btn btn-outline mx-3" %></li>
+          <li class="nav-item"><%= link_to "商品一覧", items_path, class: "nav-link btn btn-outline mx-3" %></li>
+          <li class="nav-item"><%= link_to "新規登録", new_customer_registration_path, class: "nav-link btn btn-outline mx-3" %></li>
+          <li class="nav-item"><%= link_to "ログイン", new_customer_session_path, class: "nav-link btn btn-outline mx-3" %></li>
         <% end %>
       </ul>
+    </div>
+    <div class="header-inner">
+      <form>
+        <input type="text" placeholder="検索">
+        <button>🔍</button>
+      </form>
     </div>
   </div>
 </nav>
