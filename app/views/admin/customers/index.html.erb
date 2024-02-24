@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>会員一覧</h1>
-        <table class='table'>
-          <thead>
+      <h4><strong>会員一覧</strong></h4>
+        <table class='table table-bordered'>
+          <thead style="background-color:rgba(211, 211, 211, 0.5);">
             <tr>
               <th>会員ID</th>
               <th>氏名</th>
@@ -16,7 +16,7 @@
               <tr>
                 <td><%= customer.id %></td>
                 <td>
-                  <%= link_to admin_customer_path(customer.id) do %>
+                  <%= link_to admin_customer_path(customer.id), style: "color: black; text-decoration: underline;" do %>
                     <%= customer.last_name %><%= customer.first_name %>
                   <% end %>
                 </td>
