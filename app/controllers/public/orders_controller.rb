@@ -1,10 +1,11 @@
 class Public::OrdersController < ApplicationController
   before_action :cartitem_nill,   only: [:new, :create]
+  before_action :order_new, only: [:confirm]
 
   def new
     @order = Order.new
     @customer = current_customer
-    @addresses = Address.all
+    @addresses = current_customer.addresses
   end
 
   def confirm
@@ -72,6 +73,14 @@ class Public::OrdersController < ApplicationController
      if cart_items.blank?
       redirect_to cart_items_path
      end
+  end
+
+  def order_new
+    if params[:order][:select_address] == "2"
+      if params[:order][:postal_code] == "" || params[:order][:address] == "" || params[:order][:name] == ""
+        redirect_back(fallback_location: root_path)
+      end
+    end
   end
 
 end
