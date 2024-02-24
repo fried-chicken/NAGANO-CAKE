@@ -15,8 +15,6 @@
           <td><%= f.text_field :first_name, autocomplete: "first_name" %></td>
         </tr>
         
-        <th><br></th>
-        
         <tr>
           <td>フリガナ</td>
           <td>(セイ)</td>
@@ -25,16 +23,12 @@
           <td><%= f.text_field :first_name_kana, autocomplete: "first_name_kana" %></td>
         </tr>
         
-        <th><br></th>
-        
         <tr>
           <td>メールアドレス</td>
           <td></td>
           <td> <%= f.email_field :email, autocomplete: "email" %></td>
           <td></td>
         </tr>
-        
-        <th><br></th>
         
         <tr>
           <td>郵便番号（ハイフンなし）</td>
@@ -43,16 +37,12 @@
           <td></td>
         </tr>
         
-        <th><br></th>
-        
         <tr>
           <td>住所</td>
           <td></td>
           <td><%= f.text_field :address, autocomplete: "address", size: 35 %></td>
           <td></td>
         </tr>
-        
-        <th><br></th>
         
         <tr>
           <td>電話番号（ハイフンなし）</td>
@@ -69,8 +59,6 @@
           <td><%= f.password_field :password, autocomplete: "new-password" %></td>
           <td></td>
         </tr>
-        
-        <th><br></th>
         
         <tr>
           <td>パスワード（確認用）</td>
@@ -90,8 +78,8 @@
       </table>
       </div>
       <% end %>
-      <h4>既に登録済みの方</h4>
-      <%= link_to 'こちら', customer_session_path %> からログインください。
+      <div class="mb-4">既に登録済みの方</div>
+      <div class="ml-5"><%= link_to 'こちら', customer_session_path, style: 'color: black;' %> からログインください。</div>
     </div>
   </div>
 </div>
