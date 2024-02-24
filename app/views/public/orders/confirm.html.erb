@@ -1,13 +1,3 @@
-<% if @order.errors.any? %>
-  <%= @order.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @order.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-
 <div class="container">
   <h4>注文情報確認</h4>
   <div class="row">
@@ -15,23 +5,23 @@
       <table class="table table-bordered">
         <thead class="table-title" style="background-color: rgba(211, 211, 211, 0.5);">
           <tr>
-            <th>商品名</th>
-            <th>単価（税込）</th>
-            <th>数量</th>
-            <th>小計</th>
+            <th style="border: 1px solid black;">商品名</th>
+            <th style="border: 1px solid black;">単価（税込）</th>
+            <th style="border: 1px solid black;">数量</th>
+            <th style="border: 1px solid black;">小計</th>
           </tr>
         <% @sum = 0 %>
         <% @cart_items.each do |cart_item| %>
         <tbody>
           <tr>
-            <td>
+            <td style="border: 1px solid black;">
               <%= image_tag cart_item.item.image, size: "100x80" %>
               <%= cart_item.item.name %>
             </td>
 
-            <td><%= number_with_delimiter((cart_item.item.with_taxin_price).floor) %></td>
-            <td><%= cart_item.amount %></td>
-            <td><%= number_with_delimiter(((cart_item.item.with_taxin_price).floor)*(cart_item.amount)) %></td>
+            <td style="border: 1px solid black;"><%= number_with_delimiter((cart_item.item.with_taxin_price).floor) %></td>
+            <td style="border: 1px solid black;"><%= cart_item.amount %></td>
+            <td style="border: 1px solid black;"><%= number_with_delimiter(((cart_item.item.with_taxin_price).floor)*(cart_item.amount)) %></td>
 
             <% @sum += cart_item.subtotal %>
           </tr>
@@ -43,16 +33,16 @@
     <div class="col-4">
       <table class="table table-bordered">
         <tr>
-          <th style="background-color: rgba(211, 211, 211, 0.5);">送料</th>
-          <td><%= @shipping_fee %></td>
+          <th style="background-color: rgba(211, 211, 211, 0.5); border: 1px solid black;">送料</th>
+          <td style="border: 1px solid black;"><%= @shipping_fee %></td>
         </tr>
         <tr>
-          <th style="background-color: rgba(211, 211, 211, 0.5);">商品合計</th>
-          <td><%= number_with_delimiter(@sum.floor) %></td>
+          <th style="background-color: rgba(211, 211, 211, 0.5); border: 1px solid black;">商品合計</th>
+          <td style="border: 1px solid black;"><%= number_with_delimiter(@sum.floor) %></td>
         </tr>
         <tr>
-          <th style="background-color: rgba(211, 211, 211, 0.5);">請求金額</th>
-          <td><%= number_with_delimiter(@shipping_fee + (@sum.floor)) %></td>
+          <th style="background-color: rgba(211, 211, 211, 0.5); border: 1px solid black;">請求金額</th>
+          <td style="border: 1px solid black;"><%= number_with_delimiter(@shipping_fee + (@sum.floor)) %></td>
         </tr>
       </table>
     </div>
@@ -86,7 +76,7 @@
     <%= f.hidden_field :address, value: @order.address%>
     <%= f.hidden_field :name, value: @order.name %>
     <%= f.hidden_field :status, value: "入金待ち"%>
-    <%= f.submit "注文を確定する", class:"btn btn-success" %>
+    <%= f.submit "注文を確定する", class:"btn btn-success","data-confirm" => "注文を確定しますか？" %>
   <% end %>
   </div>
 </div>

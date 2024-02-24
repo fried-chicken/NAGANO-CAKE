@@ -47,6 +47,7 @@ class Public::OrdersController < ApplicationController
 
         CartItem.destroy_all
         redirect_to orders_thanks_path
+
   end
 
   def thanks
