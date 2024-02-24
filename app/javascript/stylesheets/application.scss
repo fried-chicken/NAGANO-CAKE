@@ -1,8 +1,91 @@
 @use '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-// ヘッダー用
+// 共通のスタイル
+.btn-logo {
+  color: white;
+  background-color: transparent; /* 背景色を透明に設定 */
+  font-weight: bold;
+  font-size: 2rem;
+  font-family: 'Pacifico', cursive;
+}
+
+.btn-logo:hover {
+  color: white;
+}
+
 .btn-outline {
-  border-color: lightgray;
+  display: inline-block;
+  padding: 0.8em 3em;
+  background-color: #C3AE8F; /* 背景色 */
+  box-shadow: 0 3px 0 #B6996B; /* 影の太さ・色 */
+  border-radius: 60px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none; /* 文字の下線を消す */
+}
+
+.btn-outline:hover {
+  color: white;
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.btn-outline:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.bg-back {
+  background-color: #C3AE8F;
+}
+
+.header-inner form input {
+  width: 300px;
+  height: 100%;
+  display: block;
+  padding: 0px 20px;
+  border-radius: 20px;
+  font-size: 20px;
+  line-height: 1;
+  border: 2px solid #D2B599;
+}
+
+.header-inner form input:focus {
+  outline-color: #C3AE8F;
+}
+
+.header-inner form input::placeholder {
+  font-size: 14px;
+  position: relative;
+  bottom: 2px;
+}
+
+.header-inner form {
+  display: block;
+  position: relative;
+  height: 40px;
+  outline-color: #C3AE8F;
+}
+
+.header-inner form button {
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px; /* テキストのサイズに合わせて調整 */
+  background: none; /* 背景を透明にする */
+  border: none; /* 枠線をなくす */
+  cursor: pointer; /* マウスを乗せた時にカーソルをポインターに変更 */
+}
+
+footer {
+  color: #F7F1E1;
+  background-color: #C3A78F;
+  position: fixed; /* ページの下部に固定 */
+  bottom: 0;
+  width: 100%; /* 幅を100%に設定 */
+  font-family: 'Pacifico', cursive;
 }
 
 // 新規商品登録ボタン
@@ -16,17 +99,17 @@
   line-height: 40px;
   background-color: white;
   color: black;
-  border: 1px solid black; /* 枠線を細くする */
+  border: 1px solid black;
 }
 
 .btn-circle:hover {
-  background-color: white; /* ホバーしても背景色が変わらないように */
-  color: black; /* ホバーしても文字色が変わらないように */
-  border: 1px solid black; /* ホバーしても枠線が変わらないように */
+  background-color: white;
+  color: black;
+  border: 1px solid black;
 }
 
 .btn:focus {
-  outline: none !important; /* !importantを追加 */
+  outline: none !important;
 }
 
 // ジャンル
