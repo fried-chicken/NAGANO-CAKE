@@ -1,12 +1,12 @@
 <div class="container">
   <div class="d-flex">
-    <h4>商品一覧</h4>
-    <h5>（全<%= @items_count.count %>件）</h5>
+    <h4><strong>商品一覧</strong></h4>
+    <h5 class="align-self-end">（全<%= @items_count.count %>件）</h5>
   </div>
   <div class="row ">
     <div class="d-flex flex-wrap justify-content-around">
       <% @items.each do |item| %>
-        <div class="card">
+        <div class="card mt-2">
           <%= link_to item_path(item.id), style: "text-decoration: underline; color: black;" do %>
             <p><%= image_tag item.get_image, size:"250x200" %></p>
             <p><strong><%= item.name %></strong></p>
