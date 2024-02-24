@@ -1,12 +1,8 @@
-<div class="container-fluid">
-  <div class="row" >
-    <div class="col-md-3">
-      <div>
-        <strong>ジャンル検索</strong>
-      </div>
-    </div>
-    <div class="col-md-9">
-      <div>
+<div class="container" style="margin-bottom: 90px;">
+  <div class="row">
+    <div class="col-md-12" style="position: relative; margin-top: 40px;">
+      <%= image_tag 'top-image.png', style: "width: 100%; height: 40vh;" %>
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(255, 255, 255, 0.7); padding: 20px;">
         <strong>ようこそ、ながのCAKEへ！</strong><br>
         このサイトは、ケーキ販売のECサイトになります。<br>
         会員でない方も商品の閲覧はできますが、<br>
@@ -15,8 +11,8 @@
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col-md-9 offset-md-3">
-      <h2><strong>新着商品</strong></h2>
+    <div class="col-md-12">
+      <h2><strong>＜新着商品＞</strong></h2>
       <div class="row">
         <% @new_items.each do |item| %>
           <% if item.is_active %>
@@ -34,9 +30,9 @@
           <% end %>
         <% end %>
       </div>
-      <div class="text-right">
-        <%= link_to "全ての商品を見る＞", items_path, style: "text-decoration: underline;" %>
-      </div>
+      <h5 class="text-right">
+        <%= link_to "全ての商品を見る＞", items_path, style: "color: black; text-decoration: underline;" %>
+      </h5>
     </div>
   </div>
 </div>

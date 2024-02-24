@@ -1,7 +1,11 @@
 @use '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-// 共通のスタイル
+body {
+  background-color: #FFEBCD;
+}
+
+// ヘッダー
 .btn-logo {
   color: white;
   background-color: transparent; /* 背景色を透明に設定 */
