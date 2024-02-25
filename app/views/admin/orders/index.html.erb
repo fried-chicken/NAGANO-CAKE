@@ -5,31 +5,31 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th class="table-active">購入日時</th>
-            <th class="table-active">購入者</th>
-            <th class="table-active">注文個数</th>
-            <th class="table-active">注文ステータス</th>
+            <th class="table-active" style="border: 1px solid black;">購入日時</th>
+            <th class="table-active" style="border: 1px solid black;">購入者</th>
+            <th class="table-active" style="border: 1px solid black;">注文個数</th>
+            <th class="table-active" style="border: 1px solid black;">注文ステータス</th>
           </tr>
         </thead>
         <tbody>
           <% @orders.each do |order| %>
             <tr>
-              <td class="align-middle link">
+              <td class="align-middle link" style="border: 1px solid black;">
                 <%= link_to admin_order_path(order) do %>
                 <%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
                 <% end %>
               </td>
-              <td class="align-middle">
+              <td class="align-middle" style="border: 1px solid black;">
                 <%= order.customer.last_name+order.customer.first_name %>
               </td>
-              <td class="align-middle">
+              <td class="align-middle" style="border: 1px solid black;">
                 <% @total_amount = 0 %>
                 <% order.order_details.each do |order_detail| %>
                 <% @total_amount += order_detail.amount %>
                 <% end %>
                 <%= @total_amount %>
               </td>
-              <td class="align-middle"><%= order.status %></td>
+              <td class="align-middle" style="border: 1px solid black;"><%= order.status %></td>
             </tr>
           <% end %>
         </tbody>
