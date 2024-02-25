@@ -6,11 +6,11 @@
   <div class="row ">
     <div class="d-flex flex-wrap justify-content-around">
       <% @items.each do |item| %>
-        <div class="card mt-2">
+        <div class="card mt-2" style="background-color: rgba(221,221,221,0);">
           <%= link_to item_path(item.id), style: "text-decoration: underline; color: black;" do %>
             <p><%= image_tag item.get_image, size:"250x200" %></p>
             <p><strong><%= item.name %></strong></p>
-            <p><strong>￥<%= number_with_delimiter(item.price) %></strong></p>
+            <p><strong>￥<%= number_with_delimiter(((item.price)*1.1 ).floor) %>（税込）</strong></p>
           <% end %>
         </div>
       <% end %>
