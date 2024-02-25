@@ -15,4 +15,13 @@ class Order < ApplicationRecord
     発送済み: 4
   }
 
+  after_update :update_making_status, if: :saved_change_to_status?
+
+  private
+
+  def update_making_status
+    if status == "入金確認"
+      order_details.update_all(making_status: :製作待ち)
+    end
+  end
 end
