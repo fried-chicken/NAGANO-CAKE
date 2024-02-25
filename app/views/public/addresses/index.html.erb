@@ -29,22 +29,22 @@
   <p></p>
 <div class="row">
   <div class="col-sm-8 px-sm-0 mx-auto">
-    <table class="table table-bordered">
-      <thead class="table-active">
+    <table class="table" style="border-top: 1px solid #C3A78F">
+      <thead class="table" style="background-color: #DCC2A1;">
         <tr>
-          <th style="border: 1px solid black;">郵便番号</th>
-          <th style="border: 1px solid black;">住所</th>
-          <th style="border: 1px solid black;">宛先</th>
-          <th style="border: 1px solid black;" colspan="2"></th>
+          <th style="border: 1px solid #C3A78F;">郵便番号</th>
+          <th style="border: 1px solid #C3A78F;">住所</th>
+          <th style="border: 1px solid #C3A78F;">宛先</th>
+          <th style="border: 1px solid #C3A78F;" colspan="2"></th>
         </tr>
       </thead>
       <tbody>
         <% @addresses.each do |address| %>
           <tr>
-            <td style="border: 1px solid black;"><%= address.postal_code %></td>
-            <td style="border: 1px solid black;"><%= address.address %></td>
-            <td style="border: 1px solid black;"> <%= address.name %></td>
-            <td style="border: 1px solid black;"><%= link_to "編集する",edit_address_path(address), class:"btn btn-success" %> <%= link_to "削除する",address_path(address), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %></td>
+            <td><%= address.postal_code %></td>
+            <td><%= address.address %></td>
+            <td> <%= address.name %></td>
+            <td><%= link_to "編集する",edit_address_path(address), class:"btn btn-success" %> <%= link_to "削除する",address_path(address), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %></td>
           </tr>
         <% end %>
       </tbody>
@@ -52,9 +52,3 @@
   </div>
 </div>
   
-  
-
-    
-    
-
-
