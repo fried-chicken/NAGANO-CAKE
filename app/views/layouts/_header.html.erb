@@ -3,7 +3,7 @@
 
     <strong><%= link_to "NAGANOCAKE.", root_path, class: "btn btn-logo"%></strong>
     <div style="margin-left: 450px; font-weight: bold; color: white; font-size: 1.5rem;">
-      <% if customer_signed_in? %>
+      <% if customer_signed_in? && @current_customer %>
         <div>【 ようこそ<span><%= @current_customer.last_name + @current_customer.first_name %></span>様！ 】</div>
       <% elsif admin_signed_in? %>
         <div>【 管理者用ページ 】</div>
