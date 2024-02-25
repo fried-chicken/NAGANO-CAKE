@@ -19,9 +19,9 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_orders_path
     when Customer
-      items_path
-    else
       root_path
+    else
+      items_path
     end
   end
   
