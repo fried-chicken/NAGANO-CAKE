@@ -3,6 +3,12 @@
 
 body {
   background-color: #FFEBCD;
+  margin-bottom : 100px;
+}
+
+.table th,
+.table td {
+  border-top: 1px solid black;
 }
 
 // ヘッダー

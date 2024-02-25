@@ -3,9 +3,9 @@ class Admin::OrderDetailsController < ApplicationController
 
   def update
     if @order_detail.update(order_detail_params)
-      flash[:success] = "製作ステータスが更新されました。"
+      flash[:making_status_success] = "製作ステータスが更新されました。"
     else
-      flash[:error] = "製作ステータスの更新に失敗しました。"
+      flash[:making_status_error] = "製作ステータスの更新に失敗しました。"
     end
     redirect_to admin_order_path(@order_detail.order)
   end
