@@ -1,13 +1,13 @@
-<div class="container"  style="margin-top: 10px;">
+<div class="container"  style="margin-top: 40px;">
   <h4> <strong>注文履歴詳細</strong></h4>
     <div class ="row">
 
       <div class="col-8">
         <h5><strong>注文情報</strong></h5>
-        <table class="table table-bordered">
+        <table class="table">
           <tr>
-            <td style="background-color: rgba(211, 211, 211, 0.5); border: 1px solid black;">注文日</td>
-            <td style="border: 1px solid black;"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+            <td style="background-color: #DCC2A1; 1px solid #DCC2A1;">注文日</td>
+            <td style="#DCC2A1; 1px solid #DCC2A1;"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
           </tr>
           <tr>
             <td style="background-color: rgba(211, 211, 211, 0.5); border: 1px solid black;">配送先</td>
