@@ -1,40 +1,40 @@
-<div class="container">
+<div class="container" style="margin-top: 40px;">
   <div class="row">
     <div class="col">
-      <h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
+      <h4><strong><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</strong></h4>
       <%= form_with model: [:admin, @customer] do |f| %>
       <table class="table table-borderless">
         <tr>
-          <th>会員ID</th>
-          <td><%= @customer.id %></td>
+          <th style="border-top: Transparent; border-bottom: 1px solid Transparent;">会員ID</th>
+          <td style="border-top: Transparent; border-bottom: 1px solid Transparent;"><%= @customer.id %></td>
         </tr>
         <tr>
-          <th>氏名</th>
-          <td><%= f.text_field :last_name %><%= f.text_field :first_name %></td>
+          <th style="border-bottom: 1px solid Transparent;">氏名</th>
+          <td style="border-bottom: 1px solid Transparent;"><%= f.text_field :last_name %><%= f.text_field :first_name %></td>
         </tr>
         <tr>
-          <th>フリガナ</th>
-          <td><%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %></td>
+          <th style="border-bottom: 1px solid Transparent;">フリガナ</th>
+          <td style="border-bottom: 1px solid Transparent;"><%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %></td>
         </tr>
         <tr>
-          <th>郵便番号</th>
-          <td><%= f.text_field :postal_code %></td>
+          <th style="border-bottom: 1px solid Transparent;">郵便番号</th>
+          <td style="border-bottom: 1px solid Transparent;"><%= f.text_field :postal_code %></td>
         </tr>
         <tr>
-          <th>住所</th>
-          <td><%= f.text_field :address %></td>
+          <th style="border-bottom: 1px solid Transparent;">住所</th>
+          <td style="border-bottom: 1px solid Transparent;"><%= f.text_field :address %></td>
         </tr>
         <tr>
-          <th>電話番号</th>
-          <td><%= f.text_field :phone_number %></td>
+          <th style="border-bottom: 1px solid Transparent;">電話番号</th>
+          <td style="border-bottom: 1px solid Transparent;"><%= f.text_field :phone_number %></td>
         </tr>
         <tr>
-          <th>メールアドレス</th>
-          <td><%= f.text_field :email %></td>
+          <th style="border-bottom: 1px solid Transparent;">メールアドレス</th>
+          <td style="border-bottom: 1px solid Transparent;"><%= f.text_field :email %></td>
         </tr>
         <tr>
-          <th>会員ステータス</th>
-          <td>
+          <th style="border-bottom: 1px solid Transparent;">会員ステータス</th>
+          <td style="border-bottom: 1px solid Transparent;">
             <%= f.radio_button :is_active, :true %>
             <%= f.label :is_active, "有効", {value: :true} %>
 
@@ -43,8 +43,8 @@
           </td>
         </tr>
         <tr>
-          <th></th>
-          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+          <th style="border-bottom: 1px solid Transparent;"></th>
+          <td style="border-bottom: 1px solid Transparent;"><%= f.submit "変更を保存", class:"btn btn-success" %></td>
         </tr>
       </table>
       <% end %>

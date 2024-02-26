@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container" style="margin-top: 40px;">
   <div class="row">
     <div class="col">
       <h4><strong><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</strong></h4>
       <div class="d-flex align-items-center">
         <table class="table table-borderless">
           <tr>
-            <th>会員ID</th>
-            <td><%= @customer.id %></td>
+            <th style="border-top: Transparent;">会員ID</th>
+            <td style="border-top: Transparent;"><%= @customer.id %></td>
           </tr>
           <tr>
             <th>氏名</th>
@@ -38,8 +38,8 @@
           </tr>
 
           <tr>
-            <th></th>
-            <td>
+            <th style="border-bottom: 1px solid Transparent;"></th>
+            <td style="border-bottom: 1px solid Transparent;">
               <%= link_to "編集する", edit_admin_customer_path, class:"btn btn-success" %>
               <%= link_to "注文履歴一覧を見る", admin_orders_path, class:"btn btn-primary" %>
             </td>
