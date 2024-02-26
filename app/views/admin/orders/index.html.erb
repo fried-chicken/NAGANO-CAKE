@@ -2,32 +2,32 @@
   <div class="row">
     <div class="col-sm-10 px-sm-0 mx-auto">
       <h4 class="my-4">注文履歴一覧</h4>
-      <table class="table table-bordered">
-        <thead>
+      <table class="table">
+        <thead style="background-color: #DCC2A1;">
           <tr>
-            <th class="table-active" style="border: 1px solid black;">購入日時</th>
-            <th class="table-active" style="border: 1px solid black;">購入者</th>
-            <th class="table-active" style="border: 1px solid black;">注文個数</th>
-            <th class="table-active" style="border: 1px solid black;">注文ステータス</th>
+            <th style="border-bottom: 2px solid #C3A78F;">購入日時</th>
+            <th style="border-bottom: 2px solid #C3A78F;">購入者</th>
+            <th style="border-bottom: 2px solid #C3A78F;">注文個数</th>
+            <th style="border-bottom: 2px solid #C3A78F;">注文ステータス</th>
           </tr>
         </thead>
         <tbody>
           <% @orders.each do |order| %>
             <tr>
-              <td class="align-middle link" style="border: 1px solid black;">
+              <td>
                 <%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admin_order_path(order), style: "color: black; text-decoration: underline; color: black;" %>
               </td>
-              <td class="align-middle" style="border: 1px solid black;">
+              <td>
                 <%= order.customer.last_name+order.customer.first_name %>
               </td>
-              <td class="align-middle" style="border: 1px solid black;">
+              <td>
                 <% @total_amount = 0 %>
                 <% order.order_details.each do |order_detail| %>
                 <% @total_amount += order_detail.amount %>
                 <% end %>
                 <%= @total_amount %>
               </td>
-              <td class="align-middle" style="border: 1px solid black;"><%= order.status %></td>
+              <td><%= order.status %></td>
             </tr>
           <% end %>
         </tbody>
