@@ -1,27 +1,27 @@
 <div class="container">
-  <h4>注文情報確認</h4>
+  <h4 style="margin-top: 40px;">注文情報確認</h4>
   <div class="row">
     <div class="col-8">
-      <table class="table table-bordered">
-        <thead class="table-title" style="background-color: rgba(211, 211, 211, 0.5);">
+      <table class="table">
+        <thead class="table-title" style="background-color: #DCC2A1; 1px solid #DCC2A1;">
           <tr>
-            <th style="border: 1px solid black;">商品名</th>
-            <th style="border: 1px solid black;">単価（税込）</th>
-            <th style="border: 1px solid black;">数量</th>
-            <th style="border: 1px solid black;">小計</th>
+            <th style="border: 1px solid #DCC2A1;">商品名</th>
+            <th style="border: 1px solid #DCC2A1;">単価（税込）</th>
+            <th style="border: 1px solid #DCC2A1;">数量</th>
+            <th style="border: 1px solid #DCC2A1;">小計</th>
           </tr>
         <% @sum = 0 %>
         <% @cart_items.each do |cart_item| %>
         <tbody>
           <tr>
-            <td style="border: 1px solid black;">
+            <td>
               <%= image_tag cart_item.item.image, size: "100x80" %>
               <%= cart_item.item.name %>
             </td>
 
-            <td style="border: 1px solid black;"><%= number_with_delimiter((cart_item.item.with_taxin_price).floor) %></td>
-            <td style="border: 1px solid black;"><%= cart_item.amount %></td>
-            <td style="border: 1px solid black;"><%= number_with_delimiter(((cart_item.item.with_taxin_price).floor)*(cart_item.amount)) %></td>
+            <td style=><%= number_with_delimiter((cart_item.item.with_taxin_price).floor) %></td>
+            <td style=><%= cart_item.amount %></td>
+            <td style=><%= number_with_delimiter(((cart_item.item.with_taxin_price).floor)*(cart_item.amount)) %></td>
 
             <% @sum += cart_item.subtotal %>
           </tr>
@@ -31,18 +31,18 @@
     </div>
 
     <div class="col-4">
-      <table class="table table-bordered">
+      <table class="table">
         <tr>
-          <th style="background-color: rgba(211, 211, 211, 0.5); border: 1px solid black;">送料</th>
-          <td style="border: 1px solid black;"><%= @shipping_fee %></td>
+          <th style="background-color: #DCC2A1; border-top: Transparent; border-bottom:2px solid #C3A78F;">送料</th>
+          <td style="border-top:1px solid Transparent;"><%= @shipping_fee %></td>
         </tr>
         <tr>
-          <th style="background-color: rgba(211, 211, 211, 0.5); border: 1px solid black;">商品合計</th>
-          <td style="border: 1px solid black;"><%= number_with_delimiter(@sum.floor) %></td>
+          <th style="background-color: #DCC2A1; border-bottom:2px solid #C3A78F;">商品合計</th>
+          <td><%= number_with_delimiter(@sum.floor) %></td>
         </tr>
         <tr>
-          <th style="background-color: rgba(211, 211, 211, 0.5); border: 1px solid black;">請求金額</th>
-          <td style="border: 1px solid black;"><%= number_with_delimiter(@shipping_fee + (@sum.floor)) %></td>
+          <th style="background-color: #DCC2A1; border-bottom: 2px solid #C3A78F;">請求金額</th>
+          <td><%= number_with_delimiter(@shipping_fee + (@sum.floor)) %></td>
         </tr>
       </table>
     </div>
