@@ -9,14 +9,14 @@
   </div>
   <div class="row">
     <div class="col-sm-12 px-sm-0 mx-auto">
-      <table class="table" style="border-top: 1px solid #C3A78F">
+      <table class="table">
         <thead class="table" style="background-color: #DCC2A1;">
           <tr>
-            <th style="border: 1px solid #C3A78F;">商品名</th>
-            <th style="border: 1px solid #C3A78F;">単価(税込み)</th>
-            <th style="border: 1px solid #C3A78F;">数量</th>
-            <th style="border: 1px solid #C3A78F;">小計</th>
-            <th style="border: 1px solid #C3A78F;"></th>
+            <th style="border-bottom: 1px solid #C3A78F;">商品名</th>
+            <th style="border-bottom: 1px solid #C3A78F;">単価(税込み)</th>
+            <th style="border-bottom: 1px solid #C3A78F;">数量</th>
+            <th style="border-bottom: 1px solid #C3A78F;">小計</th>
+            <th style="border-bottom: 1px solid #C3A78F;"></th>
           </tr>
         </thead>
           <% @sum = 0 %>
@@ -46,7 +46,7 @@
       <%= link_to "買い物を続ける" , root_path , class: "btn btn-primary" %>
     </div>
     <div class="col-sm-4 px-sm-0">
-      <table  class="table" style="border-top: 1px solid #C3A78F">
+      <table  class="table" style="border-top: 2px solid #C3A78F">
         <tr>
           <th style="background-color: #DCC2A1;">合計金額</td><td><%= number_with_delimiter(@sum.floor) %></td>
         </tr>
