@@ -1,4 +1,4 @@
-![logo3](/NAGANO-CAKE-ver.1/app/assets/images/rogo.png)
+![logo3](/NAGANO-CAKE/app/assets/images/rogo.png)
 
 #ながのCAKE<br>
 長野県にある小さな洋菓子店、「ながのCAKE」の商品を通販するためのECサイト。<br>
