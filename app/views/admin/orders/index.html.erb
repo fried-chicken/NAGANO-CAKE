@@ -15,9 +15,7 @@
           <% @orders.each do |order| %>
             <tr>
               <td class="align-middle link" style="border: 1px solid black;">
-                <%= link_to admin_order_path(order) do %>
-                <%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-                <% end %>
+                <%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admin_order_path(order), style: "color: black; text-decoration: underline; color: black;" %>
               </td>
               <td class="align-middle" style="border: 1px solid black;">
                 <%= order.customer.last_name+order.customer.first_name %>
@@ -34,7 +32,9 @@
           <% end %>
         </tbody>
       </table>
-      <%= paginate @orders %>
+      <div>
+        <%= paginate @orders %>
+      </div>
     </div>
   </div>
 </div>
