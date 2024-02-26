@@ -22,29 +22,29 @@
 
   <div class="row" style="margin: 20px 0;">
     <div class="col-md-8">
-      <div class="mb-3 pb-3" style="border-bottom: 1px solid black;">
+      <div class="mb-3 pb-3" style="border-bottom: 1px solid #C3A78F;">
         <div class="d-inline-block" style="width: 150px;"><strong>購入者</strong></div>
         <div class="d-inline-block">
           <%= link_to "#{ @order.customer.last_name }#{ @order.customer.first_name }",edit_admin_customer_path(@order.customer),style: "text-decoration: underline; color: black;" %>
         </div>
       </div>
   
-      <div class="mb-3 pb-3" style="border-bottom: 1px solid black;">
+      <div class="mb-3 pb-3" style="border-bottom: 1px solid #C3A78F;">
         <div class="d-inline-block" style="width: 150px;"><strong>注文日</strong></div>
         <div class="d-inline-block"><%= @order.created_at.strftime("%Y/%m/%d") %></div>
       </div>
   
-      <div class="mb-3 pb-3" style="border-bottom: 1px solid black;">
+      <div class="mb-3 pb-3" style="border-bottom: 1px solid #C3A78F;">
         <div class="d-inline-block" style="width: 150px;"><strong>配送先</strong></div>
         <div class="d-inline-block"><%= @order.address %></div>
       </div>
   
-      <div class="mb-3 pb-3" style="border-bottom: 1px solid black;">
+      <div class="mb-3 pb-3" style="border-bottom: 1px solid #C3A78F;">
         <div class="d-inline-block" style="width: 150px;"><strong>支払方法</strong></div>
         <div class="d-inline-block"><%= t("enums.order.payment_method.#{@order.payment_method}") %></div>
       </div>
   
-      <div class="mb-3 pb-3" style="border-bottom: 1px solid black;">
+      <div class="mb-3 pb-3" style="border-bottom: 1px solid #C3A78F;">
         <div class="d-inline-block" style="width: 150px;"><strong>注文ステータス</strong></div>
         <div class="d-inline-block">
           <%= form_with(model: @order, url: admin_order_path(@order), method: :patch) do |f| %>
@@ -80,14 +80,14 @@
         </div>
       </div>
       
-      <table class="table" style="border: 1px solid black;">
+      <table class="table" style="border: 1px solid #C3A78F;">
         <thead class="table-title" style="background-color: #DCC2A1;">
           <tr>
-            <th style="border-bottom: 1px solid black;">商品名</th>
-            <th style="border-bottom: 1px solid black;">単価（税込）</th>
-            <th style="border-bottom: 1px solid black;">数量</th>
-            <th style="border-bottom: 1px solid black;">小計</th>
-            <th style="border-bottom: 1px solid black;">製作ステータス</th>
+            <th style="border-bottom: 1px solid #C3A78F;">商品名</th>
+            <th style="border-bottom: 1px solid #C3A78F;">単価（税込）</th>
+            <th style="border-bottom: 1px solid #C3A78F;">数量</th>
+            <th style="border-bottom: 1px solid #C3A78F;">小計</th>
+            <th style="border-bottom: 1px solid #C3A78F;">製作ステータス</th>
           </tr>
         </thead>
         <tbody>
@@ -114,17 +114,17 @@
     <div class="col-md-4" style="margin-top: 40px;">
       <div class="row" style="margin: 20px 0;">
         <div class="col-md-9">
-          <div class="mb-3 pb-2" style="border-bottom: 1px solid black">
+          <div class="mb-3 pb-2" style="border-bottom: 1px solid #C3A78F">
             <div class="d-inline-block" style="width: 150px;"><strong>商品合計</strong></div>
             <div class="d-inline-block">￥<%= number_with_delimiter(@order.total_price - @order.shipping_fee) %></div>
           </div>
       
-          <div class="mb-3 pb-2" style="border-bottom: 1px solid black">
+          <div class="mb-3 pb-2" style="border-bottom: 1px solid #C3A78F">
             <div class="d-inline-block" style="width: 150px;"><strong>送料</strong></div>
             <div class="d-inline-block">￥<%= number_with_delimiter(@order.shipping_fee) %></div>
           </div>
       
-          <div class="mb-3 pb-2" style="border-bottom: 1px solid black;">
+          <div class="mb-3 pb-2" style="border-bottom: 1px solid #C3A78F;">
             <div class="d-inline-block" style="width: 150px;"><strong>請求金額合計</strong></div>
             <div class="d-inline-block"><strong>￥<%= number_with_delimiter(@order.total_price) %></strong></div>
           </div>
