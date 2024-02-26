@@ -6,24 +6,24 @@
         <h5><strong>注文情報</strong></h5>
         <table class="table">
           <tr>
-            <td style="background-color: #DCC2A1; border-top: Transparent; border-bottom:1px solid #C3A78F;">注文日</td>
-            <td style="border-top: Transparent; border-bottom: 1px solid #C3A78F;"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+            <td style="background-color: #DCC2A1; border-top: Transparent;">注文日</td>
+            <td style="border-top: Transparent;"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
           </tr>
           <tr>
-            <td style="background-color: #DCC2A1; border-bottom:1px solid #C3A78F;">配送先</td>
-            <td style="border-bottom: 1px solid #C3A78F;">
+            <td style="background-color: #DCC2A1;">配送先</td>
+            <td>
                〒<%= @order.postal_code %></br>
                <%= @order.address %></br>
                <%= @order.name %>
             </td>
           </tr>
           <tr>
-            <td style="background-color: #DCC2A1; border-bottom:1px solid #C3A78F;">支払方法</td>
-            <td style="border-bottom: 1px solid #C3A78F;"><%= t("enums.order.payment_method.#{@order.payment_method}") %></td>
+            <td style="background-color: #DCC2A1;">支払方法</td>
+            <td><%= t("enums.order.payment_method.#{@order.payment_method}") %></td>
           </tr>
           <tr>
-            <td style="background-color: #DCC2A1; border-bottom:1px solid #C3A78F;" >ステータス</td>
-            <td style="border-bottom: 1px solid #C3A78F;"><%= t("enums.order.status.#{@order.status}") %></td>
+            <td style="background-color: #DCC2A1;" >ステータス</td>
+            <td><%= t("enums.order.status.#{@order.status}") %></td>
           </tr>
         </table>
       </div>
@@ -32,16 +32,16 @@
         <h5><strong>請求情報</strong></h5>
         <table class="table">
           <tr>
-            <td style="background-color: #DCC2A1; border-top: Transparent; border-bottom:1px solid #C3A78F;">商品合計</td>
-            <td style="border-top: Transparent; border-bottom: 1px solid #C3A78F;"><%= number_with_delimiter((@order.total_price) - (@order.shipping_fee)) %></td>
+            <td style="background-color: #DCC2A1; border-top: Transparent;">商品合計</td>
+            <td style="border-top: Transparent;"><%= number_with_delimiter((@order.total_price) - (@order.shipping_fee)) %></td>
           </tr>
           <tr>
-            <td style="background-color: #DCC2A1; border-bottom:1px solid #C3A78F;">配送料</td>
-            <td style="border-bottom: 1px solid #C3A78F;"><%= @order.shipping_fee %></td>
+            <td style="background-color: #DCC2A1;">配送料</td>
+            <td><%= @order.shipping_fee %></td>
           </tr>
           <tr>
-            <th style="background-color: #DCC2A1; border-bottom:1px solid #C3A78F;">ご請求額</th>
-            <td style="border-bottom: 1px solid #C3A78F;"><%= number_with_delimiter(@order.total_price) %></td>
+            <th style="background-color: #DCC2A1;">ご請求額</th>
+            <td><%= number_with_delimiter(@order.total_price) %></td>
           </tr>
         </table>
       </div>
@@ -52,17 +52,17 @@
         <h5><strong>注文内容</strong></h5>
         <table class="table">
           <tr>
-            <td style="background-color: #DCC2A1; border-bottom:1px solid #C3A78F;">商品</td>
-            <td style="background-color: #DCC2A1; border-bottom:1px solid #C3A78F;">単価（税込）</td>
-            <td style="background-color: #DCC2A1; border-bottom:1px solid #C3A78F;">個数</td>
-            <td style="background-color: #DCC2A1; border-bottom:1px solid #C3A78F;">小計</td>
+            <td style="background-color: #DCC2A1; border-top: solid Transparent; border-bottom: solid Transparent;">商品</td>
+            <td style="background-color: #DCC2A1; border-top: solid Transparent; border-bottom: solid Transparent;">単価（税込）</td>
+            <td style="background-color: #DCC2A1; border-top: solid Transparent; border-bottom: solid Transparent;">個数</td>
+            <td style="background-color: #DCC2A1; border-top: solid Transparent; border-bottom: solid Transparent;">小計</td>
           </tr>
           <% @order_details. each do |order_detail| %>
             <tr>
-              <td style="border-bottom: 1px solid #C3A78F;"><%= order_detail.item.name %></td>
-              <td style="border-bottom: 1px solid #C3A78F;"><%= number_with_delimiter(((order_detail.item.price)*1.1).floor) %></td>
-              <td style="border-bottom: 1px solid #C3A78F;"><%= order_detail.amount %></td>
-              <td style="border-bottom: 1px solid #C3A78F;"><%= number_with_delimiter((order_detail.amount) *  (((order_detail.item.price)*1.1).floor)) %></td>
+              <td><%= order_detail.item.name %></td>
+              <td><%= number_with_delimiter(((order_detail.item.price)*1.1).floor) %></td>
+              <td><%= order_detail.amount %></td>
+              <td><%= number_with_delimiter((order_detail.amount) *  (((order_detail.item.price)*1.1).floor)) %></td>
             </tr>
           <% end %>
         </table>
