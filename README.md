@@ -1,24 +1,25 @@
-# README
+#ながのCAKE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#通販について
 
-Things you may want to cover:
+#実装機能
 
-* Ruby version
+##顧客側
 
-* System dependencies
+##管理者側
 
-* Configuration
+#使用方法
 
-* Database creation
+##インストール
 
-* Database initialization
+##テスト
 
-* How to run the test suite
+#使用言語
 
-* Services (job queues, cache servers, search engines, etc.)
+#Gem
 
-* Deployment instructions
-
-* ...
+#作成者
+・山田竜聖
+・和田一樹
+・斎藤創太
+・林和磨
