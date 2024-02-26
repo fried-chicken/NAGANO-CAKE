@@ -72,16 +72,8 @@ URLを/admin/sign_upにし管理者アカウトを作成<br>
 ・devise<br>
 ・kaminari<br>
 
-【顧客用アカウント：ログイン】 <br>
-新規登録でアカウント作成<br>
-
-#使用言語
-・HTML&CSS<br>
-・Ruby<br>
-・フレームワーク<br>
-・Rails<br>
-
-#Gem
-・bootstrap<br>
-・devise<br>
-・kaminari<br>
+#作成者
+・山田竜聖
+・和田一樹
+・斎藤創太
+・林和磨
