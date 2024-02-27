@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mx-left offset-2" style="background-color: #DCC2A1; margin-top: 40px;">
+      <h4 class="text-center"><strong>ジャンル編集</strong></h4>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6 mx-left offset-2 " style="margin-top: 20px;">
+      <% if flash[:success] %>
+        <div class="alert alert-success" role="alert">
+          <%= flash[:success] %>
+        </div>
+      <% end %>
+      <% if flash[:error] %>
+        <div class="alert alert-danger" role="alert">
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 mx-left offset-2" style="margin-bottom: 10px;">
+      <%= form_with(model: @genre, url: admin_genre_path(@genre), method: :patch, local: true) do |form| %>
+        <div class="row">
+          <div class="col">
+            <div class="form-group mb-3">
+              <%= form.label :name, "ジャンル名：" %>
+              <%= form.text_field :name %>
+              <%= form.submit "変更を保存", class: "btn btn-primary", style: "background-color: green;" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

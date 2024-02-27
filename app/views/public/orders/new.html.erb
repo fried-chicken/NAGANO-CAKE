@@ -1,2 +1,53 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+<%= form_with model: @order, url: orders_confirm_path do |f| %>
+  <div class="container">
+    <h4>注文情報入力</h4>
+      <h5><strong>支払方法</strong></h5>
+        <div class="row" style="margin-left:20px;">
+          <p>
+            <%= f.radio_button :payment_method, Order.payment_methods.key(0), checked: true %>
+            <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+          </br>
+            <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+            <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer] %>
+          </p>
+        </div>
+
+      <h5><strong>お届け先</strong></h5>
+        <div class="row" style="margin-left:20px;">
+          <div class="d-flex flex-column mb-3">
+            <div><%= f.radio_button :select_address, 0, checked: true %>ご自身の住所</div>
+              <p style="margin-left:20px;">
+                〒<%= @customer.postal_code %><%= @customer.address %></br>
+                <%= @customer.last_name %><%= @customer.first_name %>
+              </p>
+
+            <div><%= f.radio_button :select_address, 1 %>登録済み住所から選択</div>
+              <p style="margin-left:20px;">
+                <%= f.select :address_id , options_from_collection_for_select(@addresses, :id, :address_display) %>
+              </p>
+
+            <div><%= f.radio_button :select_address, 2 %>新しいお届け先</div>
+              <table style="margin-left:20px;">
+                <tr>
+                  <td>郵便番号（ハイフンなし）</td>
+                  <td> <%= f.text_field :postal_code, placeholder:"0000000" %></td>
+                </tr>
+                <tr>
+                  <td>住所</td>
+                  <td><%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0", size: "50x5" %></td>
+                </tr>
+                <tr>
+                  <td>宛名</td>
+                  <td><%= f.text_field :name, placeholder:"令和道子" %></td>
+                </tr>
+              </table>
+
+              <p></p>
+
+              <div class="col-sm-6 px-sm-0 mx-auto text-center mb-3">
+                <%= f.submit "確認画面へ進む", class:"btn btn-primary"  %>
+              </div>
+          </div>
+        </div>
+  </div>
+<% end %>

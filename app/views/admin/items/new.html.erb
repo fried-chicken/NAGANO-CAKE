@@ -1,0 +1,68 @@
+<div class="container" style="max-width: 50%;">
+  <div class="row">
+    <div class="col-4" style="background-color: #DCC2A1; margin-top: 40px;">
+      <h4 class="text-center"><strong>商品新規登録</strong></h4>
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <%= render 'layouts/errors', obj: @item %>
+    <%= form_with model: @item, url: admin_items_path do |f| %>
+      <div class="row mb-3">
+        <div class="col-md-3 col-form-label">商品画像</div>
+        <div class="col-md-8" style="position: relative; left: -12px;">
+          <%= f.file_field :image, accept: "image/*", class: "form-control border-0", style: "background-color: #FFEBCD;"%>
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col-md-3 col-form-label">商品名</div>
+        <div class="col-md-8">
+          <%= f.text_field :name, placeholder: "商品名", class: "form-control" %>
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col-md-3 col-form-label">商品説明</div>
+        <div class="col-md-8">
+          <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "form-control", rows: 5 %>
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col-md-3 col-form-label">ジャンル</div>
+        <div class="col-md-8">
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, selected: @item.genre_id, prompt: "--選択してください--", class: "form-control" %>
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col-md-3 col-form-label text-sm-end">税抜価格</div>
+        <div class="col-md-8 d-flex align-items-center">
+          <%= f.text_field :price, placeholder: "1,000", class: "form-control" %>
+          <span class="ml-1">円</span>
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col-md-3 col-form-label">販売ステータス</div>
+        <div class="col-md-8">
+          <div class="form-check form-check-inline">
+            <%= f.radio_button :is_active, true, id: "active", class: "form-check-input", checked: true %>
+            <label class="form-check-label" for="active" style="color: black;">販売中</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <%= f.radio_button :is_active, false, id: "inactive", class: "form-check-input" %>
+            <label class="form-check-label" for="inactive" style="color: black;">販売停止中</label>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-8 offset-md-4">
+          <%= f.submit '新規登録', class: "btn btn-success" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" style="position: relative; margin-top: 40px;">
+      <%= image_tag 'top-image.png', style: "width: 100%; height: 40vh;" %>
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(255, 255, 255, 0.7); padding: 20px;">
+        <strong>ようこそ、ながのCAKEへ！</strong><br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない方も商品の閲覧はできますが、<br>
+        購入には会員登録が必要になります。
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h2><strong>＜新着商品＞</strong></h2>
+      <div class="row">
+        <% @new_items.each do |item| %>
+          <% if item.is_active %>
+            <div class="col-md-3 mb-4">
+              <%= link_to item_path(item.id), style: "text-decoration: underline; color: black;" do %>
+                <div><%= image_tag(item.get_image, size: "200x150") %></div>
+                <div><strong><%= link_to item.name, item_path(item.id), style: "text-decoration: underline; color: black;" %></strong></div>
+                <div><strong>￥<%= number_with_delimiter((item.price * 1.1).round) %>(税込)</strong></div>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <h5 class="text-right">
+        <%= link_to "全ての商品を見る＞", items_path, style: "color: black; text-decoration: underline;" %>
+      </h5>
+    </div>
+  </div>
+</div>

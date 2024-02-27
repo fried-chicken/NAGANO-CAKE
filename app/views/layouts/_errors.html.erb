@@ -1,0 +1,5 @@
+<% if obj.errors.any? %>
+  <div id="error_explanation">
+    <h5><%= pluralize(obj.errors.count, "箇所") %>空欄もしくは選択されていません。</h5>
+  </div>
+<% end %>
